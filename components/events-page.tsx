@@ -173,7 +173,7 @@ export default function EventsPage() {
       event.preventDefault()
       window.open(`/events/${eventId}`, "_blank")
     } else {
-      // Open in drawer
+      // Open in modal
       setSelectedEvent(eventId)
       setEventDetailsOpen(true)
     }
@@ -591,11 +591,11 @@ export default function EventsPage() {
         </div>
       </div>
 
-      {/* Event Details Drawer */}
+      {/* Event Details Modal */}
       <EventDetails
         isOpen={eventDetailsOpen}
         onClose={() => setEventDetailsOpen(false)}
-        mode="drawer"
+        mode="modal"
         eventId={selectedEvent || undefined}
       />
     </div>
