@@ -225,7 +225,7 @@ export default function EventDetails({ isOpen, onClose, mode = "modal", eventId 
       <div className="w-full px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left Column - Maps, Stats, Organizer, Participants */}
-          <div className="lg:col-span-3 space-y-6 mt-12">
+          <div className="lg:col-span-3 space-y-6 mt-12 order-2 lg:order-1">
             {/* Route Map */}
             <Card>
               <CardContent className="p-4">
@@ -336,7 +336,7 @@ export default function EventDetails({ isOpen, onClose, mode = "modal", eventId 
           </div>
 
           {/* Middle Column - Main Content */}
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-6 order-1 lg:order-2">
             <div className="space-y-6">
               {/* Header */}
               <div className="space-y-4">
@@ -481,7 +481,7 @@ export default function EventDetails({ isOpen, onClose, mode = "modal", eventId 
           </div>
 
           {/* Right Column - Discussion */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 order-3 lg:order-3">
             <Card className="sticky top-8">
               <CardContent className="p-6">
                 <DiscussionContent />
@@ -515,7 +515,7 @@ export default function EventDetails({ isOpen, onClose, mode = "modal", eventId 
             <div className="w-full px-4 sm:px-6 lg:px-8 py-8">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 {/* Left Column - Maps, Stats, Organizer, Participants */}
-                <div className="lg:col-span-3 space-y-6 mt-12">
+                <div className="lg:col-span-3 space-y-6 mt-12 order-2 lg:order-1">
                   {/* Route Map */}
                   <Card>
                     <CardContent className="p-4">
@@ -626,7 +626,7 @@ export default function EventDetails({ isOpen, onClose, mode = "modal", eventId 
                 </div>
 
                 {/* Middle Column - Main Content */}
-                <div className="lg:col-span-6">
+                <div className="lg:col-span-6 order-1 lg:order-2">
                   <div className="space-y-6">
                     {/* Header */}
                     <div className="space-y-4">
@@ -766,7 +766,7 @@ export default function EventDetails({ isOpen, onClose, mode = "modal", eventId 
                 </div>
 
                 {/* Right Column - Discussion */}
-                <div className="lg:col-span-3">
+                <div className="lg:col-span-3 order-3 lg:order-3">
                   <Card>
                     <CardContent className="p-6">
                       <DiscussionContent />
