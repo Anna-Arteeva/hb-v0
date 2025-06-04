@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Separator } from "@/components/ui/separator"
 import EventDetails from "@/components/event-details"
 import Image from "next/image"
 
@@ -180,10 +181,10 @@ export default function EventsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-10xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex items-center">
@@ -224,55 +225,56 @@ export default function EventsPage() {
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-10xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Main Content */}
           <div className="flex-1">
             <h1 className="text-4xl font-bold text-gray-900 mb-8">Events</h1>
 
-            {/* Tabs */}
-            <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-6">
-              <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
-                <TabsTrigger
-                  value="upcoming"
-                  className="data-[state=active]:border-b-2 data-[state=active]:border-[#00AD7D]"
-                >
-                  Upcoming events
-                </TabsTrigger>
-                <TabsTrigger value="today">Happening today</TabsTrigger>
-                <TabsTrigger value="past">Past</TabsTrigger>
-              </TabsList>
+            {/* Tabs and Search */}
+            <div className="flex items-center justify-between mb-6">
+              <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1">
+                <TabsList className="w-auto grid-cols-3">
+                  <TabsTrigger
+                    value="upcoming"
+                    className="data-[state=active]:border-b-2 data-[state=active]:border-[#00AD7D]"
+                  >
+                    Upcoming events
+                  </TabsTrigger>
+                  <TabsTrigger value="today">Happening today</TabsTrigger>
+                  <TabsTrigger value="past">Past</TabsTrigger>
+                </TabsList>
+              </Tabs>
 
               {/* Search Bar */}
-              <div className="mt-4 mb-6">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-                  <Input placeholder="Search events..." className="pl-10" />
-                </div>
+              <div className="relative ml-6">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                <Input placeholder="Search events..." className="pl-10 w-64" />
               </div>
+            </div>
 
+            <Tabs value={activeTab} onValueChange={setActiveTab}>
               <TabsContent value="upcoming" className="space-y-8">
                 {/* Tomorrow, Saturday */}
                 <div>
                   <h2 className="text-xl font-semibold text-gray-900 mb-4">Tomorrow, Saturday</h2>
-                  <div className="space-y-4">
-                    {events.map((event) => (
-                      <Card
-                        key={event.id}
-                        className="overflow-hidden cursor-pointer hover:shadow-md transition-shadow"
-                        onClick={(e) => handleEventClick(event.id.toString(), e)}
-                        onMouseDown={(e) => {
-                          // Handle middle mouse button
-                          if (e.button === 1) {
-                            e.preventDefault()
-                            handleEventClick(event.id.toString(), e)
-                          }
-                        }}
-                      >
-                        <CardContent className="p-0">
+                  <div className="space-y-0">
+                    {events.map((event, index) => (
+                      <div key={event.id}>
+                        <div
+                          className="py-6 cursor-pointer hover:bg-gray-50 transition-colors"
+                          onClick={(e) => handleEventClick(event.id.toString(), e)}
+                          onMouseDown={(e) => {
+                            // Handle middle mouse button
+                            if (e.button === 1) {
+                              e.preventDefault()
+                              handleEventClick(event.id.toString(), e)
+                            }
+                          }}
+                        >
                           <div className="flex flex-col md:flex-row">
                             {/* Time and Image */}
-                            <div className="flex md:flex-col items-center md:items-start p-4 md:w-32">
+                            <div className="flex md:flex-col items-center md:items-start md:w-32 mb-4 md:mb-0">
                               <div className="text-center md:mb-4">
                                 <div className="text-lg font-semibold">{event.time}</div>
                                 <div className="text-sm text-gray-500">{event.duration}</div>
@@ -289,7 +291,7 @@ export default function EventsPage() {
                             </div>
 
                             {/* Event Details */}
-                            <div className="flex-1 p-4 md:p-6">
+                            <div className="flex-1 md:ml-6">
                               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                                 {/* Event Info */}
                                 <div className="md:col-span-1">
@@ -347,8 +349,9 @@ export default function EventsPage() {
                               </div>
                             </div>
                           </div>
-                        </CardContent>
-                      </Card>
+                        </div>
+                        {index < events.length - 1 && <Separator />}
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -356,23 +359,22 @@ export default function EventsPage() {
                 {/* Jun 23, Sunday */}
                 <div>
                   <h2 className="text-xl font-semibold text-gray-900 mb-4">Jun 23, Sunday</h2>
-                  <div className="space-y-4">
-                    {events.slice(0, 2).map((event) => (
-                      <Card
-                        key={`sunday-${event.id}`}
-                        className="overflow-hidden cursor-pointer hover:shadow-md transition-shadow"
-                        onClick={(e) => handleEventClick(event.id.toString(), e)}
-                        onMouseDown={(e) => {
-                          // Handle middle mouse button
-                          if (e.button === 1) {
-                            e.preventDefault()
-                            handleEventClick(event.id.toString(), e)
-                          }
-                        }}
-                      >
-                        <CardContent className="p-0">
+                  <div className="space-y-0">
+                    {events.slice(0, 2).map((event, index) => (
+                      <div key={`sunday-${event.id}`}>
+                        <div
+                          className="py-6 cursor-pointer hover:bg-gray-50 transition-colors"
+                          onClick={(e) => handleEventClick(event.id.toString(), e)}
+                          onMouseDown={(e) => {
+                            // Handle middle mouse button
+                            if (e.button === 1) {
+                              e.preventDefault()
+                              handleEventClick(event.id.toString(), e)
+                            }
+                          }}
+                        >
                           <div className="flex flex-col md:flex-row">
-                            <div className="flex md:flex-col items-center md:items-start p-4 md:w-32">
+                            <div className="flex md:flex-col items-center md:items-start md:w-32 mb-4 md:mb-0">
                               <div className="text-center md:mb-4">
                                 <div className="text-lg font-semibold">{event.time}</div>
                                 <div className="text-sm text-gray-500">{event.duration}</div>
@@ -387,7 +389,7 @@ export default function EventsPage() {
                                 />
                               </div>
                             </div>
-                            <div className="flex-1 p-4 md:p-6">
+                            <div className="flex-1 md:ml-6">
                               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                                 <div className="md:col-span-1">
                                   <h3 className="font-semibold text-gray-900 mb-2">{event.title}</h3>
@@ -429,8 +431,9 @@ export default function EventsPage() {
                               </div>
                             </div>
                           </div>
-                        </CardContent>
-                      </Card>
+                        </div>
+                        {index < 1 && <Separator />}
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -459,12 +462,12 @@ export default function EventsPage() {
           {/* Sidebar */}
           <div className="w-full lg:w-80 space-y-6">
             {/* Your upcoming events */}
-            <Card>
+            <Card className="bg-gray-100">
               <CardContent className="p-6">
                 <h3 className="font-semibold text-gray-900 mb-4">Your upcoming events</h3>
                 <div className="space-y-4">
                   {upcomingEvents.map((event) => (
-                    <div key={event.id} className="border-b border-gray-100 last:border-b-0 pb-4 last:pb-0">
+                    <div key={event.id} className="border-b border-gray-200 last:border-b-0 pb-4 last:pb-0">
                       <div className="flex items-start space-x-3">
                         <div className="text-center">
                           <div className="text-sm font-medium">{event.date}</div>
@@ -516,7 +519,7 @@ export default function EventsPage() {
             </Card>
 
             {/* Your past events */}
-            <Card>
+            <Card className="bg-gray-100">
               <CardContent className="p-6">
                 <h3 className="font-semibold text-gray-900 mb-4">Your past events</h3>
                 <div className="space-y-4">
