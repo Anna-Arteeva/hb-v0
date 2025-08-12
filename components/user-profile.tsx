@@ -87,7 +87,7 @@ export default function UserProfile() {
   const [eventsTab, setEventsTab] = useState("upcoming")
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
 
       {/* Header */}
       <Header />

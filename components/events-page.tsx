@@ -156,7 +156,7 @@ export default function EventsPage() {
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-4">
                 <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1">
-                  <TabsList className="w-auto grid-cols-3">
+                  <TabsList className="w-auto grid-cols-3 bg-gray-200">
                     <TabsTrigger value="upcoming">Upcoming events</TabsTrigger>
                     <TabsTrigger value="today">Happening today</TabsTrigger>
                     <TabsTrigger value="past">Past</TabsTrigger>
@@ -206,23 +206,22 @@ export default function EventsPage() {
                   <div className="space-y-0" ref={eventsListRef} aria-live="polite" aria-atomic="true">
                     {filteredEvents.map((event, index) => (
                       <article key={event.id} aria-labelledby={`event-title-${event.id}`} className="relative group">
-                        <div className="py-6 hover:bg-gray-50 transition-all duration-200 rounded-lg">
+                        <div className="py-6 hover:bg-gray-50 transition-all duration-200">
                           <div className="flex flex-col md:flex-row">
-                            <div className="flex md:flex-col items-center md:items-start md:w-32 mb-4 md:mb-0">
-                              <div className="text-center md:mb-4">
-                                <div className="text-lg font-semibold">{event.time}</div>
-                                <div className="text-sm text-gray-500">{event.duration}</div>
-                              </div>
-                              <div className="ml-4 md:ml-0">
-                                <Image
-                                  src={event.image || "/placeholder.svg"}
-                                  alt=""
-                                  width={80}
-                                  height={80}
-                                  className="rounded-lg object-cover"
-                                  aria-hidden="true"
-                                />
-                              </div>
+                            <div className="flex md:flex-col items-center md:items-start md:w-20 mb-4 md:mb-0">
+                              <div className="text-lg font-semibold">{event.time}</div>
+                              <div className="text-sm text-gray-500">{event.duration}</div>
+                            </div>
+
+                            <div className="ml-4 md:ml-0 ">
+                              <Image
+                                src={event.image || "/placeholder.svg"}
+                                alt=""
+                                width={80}
+                                height={80}
+                                className="rounded-md object-cover aspect-square"
+                                aria-hidden="true"
+                              />
                             </div>
                             <div className="flex-1 md:ml-6">
                               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
