@@ -9,6 +9,10 @@ import { useState } from "react"
 export default function Header() {
   const [isSearchActive, setIsSearchActive] = useState(false)
 
+  const handleSearchIconClick = () => {
+    setIsSearchActive(true)
+  }
+
   return (
     <header className="bg-white">
       <div className="max-w-10xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,10 +53,11 @@ export default function Header() {
               </label>
               <div className={`relative transition-all duration-300 ease-in-out ${isSearchActive ? "w-64" : "w-10"}`}>
                 <Search
-                  className={`absolute top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4 transition-all duration-300 ${
-                    isSearchActive ? "left-3" : "left-1/2 -translate-x-1/2"
+                  className={`absolute top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4 transition-all duration-300 cursor-pointer hover:text-gray-600 z-10 ${
+                    isSearchActive ? "left-3 pointer-events-none" : "left-1/2 -translate-x-1/2 pointer-events-auto"
                   }`}
                   aria-hidden="true"
+                  onClick={handleSearchIconClick}
                 />
                 <Input
                   id="header-search"
