@@ -148,9 +148,7 @@ export default function HomePage() {
               {/* Left Content */}
               <div className="flex items-center px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
                 <div className="max-w-lg">
-                  <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                    Let the Adventure Begin
-                  </h1>
+                  <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Let the Adventure Begin</h1>
                   <p className="text-lg text-gray-600 mb-8">
                     Find an event organized by the community of outdoor lovers, or explore the collection of routes to
                     plan your own
@@ -166,7 +164,7 @@ export default function HomePage() {
                     <Input
                       id="hero-search"
                       placeholder="Munich Hbf..."
-                      className="pl-10 h-12 text-base bg-white border-gray-300 transition-all focus:border-primary focus:ring-2 focus:ring-primary/20"
+                      className="pl-10 h-12 text-base bg-white border-gray-300 transition-all focus:border-[#00AD7D] focus:ring-2 focus:ring-[#00AD7D]/20"
                     />
                   </div>
                 </div>
@@ -179,7 +177,7 @@ export default function HomePage() {
                   alt="A stunning mountain landscape at sunset with a trail leading towards the peaks."
                   width={600}
                   height={500}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-tl-lg rounded-bl-lg"
                 />
               </div>
             </div>
@@ -203,7 +201,7 @@ export default function HomePage() {
                       height={200}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute inset-0 bg-black bg-opacity-30 flex items-end p-4 group-hover:bg-opacity-40 transition-all">
+                    <div className="absolute inset-0 bg-black bg-opacity-30 flex items-end p-4 group-hover:bg-opacity-40 transition-all rounded-lg">
                       <div className="text-white">
                         <h3 className="font-semibold text-lg">
                           <a href="#" className="focus:outline-none before:absolute before:inset-0 before:content-['']">
@@ -316,7 +314,7 @@ export default function HomePage() {
                       height={200}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute inset-0 bg-black bg-opacity-30 flex items-end p-4 group-hover:bg-opacity-40 transition-all">
+                    <div className="absolute inset-0 bg-black bg-opacity-30 flex items-end p-4 group-hover:bg-opacity-40 transition-all rounded-lg">
                       <h3 className="text-white font-semibold">
                         <a href="#" className="focus:outline-none before:absolute before:inset-0 before:content-['']">
                           {city.title}

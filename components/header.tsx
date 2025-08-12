@@ -62,7 +62,7 @@ export default function Header() {
                 <Input
                   id="header-search"
                   placeholder={isSearchActive ? "Search..." : ""}
-                  className={`transition-all duration-300 ease-in-out ${
+                  className={`transition-all duration-300 ease-in-out focus:border-[#00AD7D] focus:ring-2 focus:ring-[#00AD7D]/20 ${
                     isSearchActive ? "pl-10 pr-4 w-full rounded-md" : "w-10 h-10 rounded-full pl-0 pr-0 cursor-pointer"
                   }`}
                   onFocus={() => setIsSearchActive(true)}
