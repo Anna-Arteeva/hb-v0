@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Hiking Buddies" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Pottenstein Ring Trail</name>
+    <desc>A scenic hiking route through caves, castles, and rock formations</desc>
+  </metadata>
+  <trk>
+    <name>Pottenstein Ring</name>
+    <desc>18km hiking trail with moderate difficulty</desc>
+    <trkseg>
+      <trkpt lat="49.7676" lon="11.4236">
+        <ele>400</ele>
+        <name>Start Point</name>
+      </trkpt>
+      <trkpt lat="49.7689" lon="11.4298">
+        <ele>450</ele>
+        <name>Cave Entrance</name>
+      </trkpt>
+      <trkpt lat="49.7712" lon="11.4356">
+        <ele>520</ele>
+        <name>Castle Viewpoint</name>
+      </trkpt>
+      <trkpt lat="49.7734" lon="11.4412">
+        <ele>480</ele>
+        <name>Rock Formation</name>
+      </trkpt>
+      <trkpt lat="49.7756" lon="11.4468">
+        <ele>580</ele>
+        <name>Forest Path</name>
+      </trkpt>
+      <trkpt lat="49.7778" lon="11.4524">
+        <ele>620</ele>
+        <name>River Crossing</name>
+      </trkpt>
+      <trkpt lat="49.7801" lon="11.4580">
+        <ele>550</ele>
+        <name>Mountain Peak</name>
+      </trkpt>
+      <trkpt lat="49.7823" lon="11.4636">
+        <ele>490</ele>
+        <name>Valley Descent</name>
+      </trkpt>
+      <trkpt lat="49.7845" lon="11.4692">
+        <ele>460</ele>
+        <name>Historic Ruins</name>
+      </trkpt>
+      <trkpt lat="49.7867" lon="11.4748">
+        <ele>400</ele>
+        <name>Final Viewpoint</name>
+      </trkpt>
+      <trkpt lat="49.7676" lon="11.4236">
+        <ele>400</ele>
+        <name>End Point</name>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
